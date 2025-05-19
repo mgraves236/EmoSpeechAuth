@@ -1,13 +1,3 @@
-!pip install -U funasr
-!pip install neptune
-!pip install torcheval
-!pip install huggingface_hub
-!pip install git+https://github.com/speechbrain/speechbrain.git@develop
-!pip install addict sortedcontainers
-!pip install pyctcdecode
-!pip install datasets==3.0.1
-
-
 import os
 import numpy as np
 from PIL import Image
