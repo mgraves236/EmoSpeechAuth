@@ -35,6 +35,16 @@ Below is a description of file contents.
 
 ## 📝 Citing
 
-If you use this code in your research, please cite:
+If you use our work in your research, please cite:
+```
+@inproceedings{goebiowska25_interspeech,
+  title     = {{EmoSpeechAuth: Emotion-Aware Speaker Verification}},
+  author    = {{Magdalena Gołębiowska and Piotr Syga}},
+  year      = {{2025}},
+  booktitle = {{Interspeech 2025}},
+  pages     = {{5743--5747}},
+  doi       = {{10.21437/Interspeech.2025-515}},
+  issn      = {{2958-1796}},
+}
 
-
+```
