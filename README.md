@@ -7,6 +7,7 @@ This repository contains the code used in the paper:
 > Wrocław University of Science and Technology, 
 > *Interspeech, 2025*
 
+Access the paper on the [ISCA archive](https://www.isca-archive.org/interspeech_2025/goebiowska25_interspeech.html#).
 ## 🧠 Overview
 
  We propose a novel framework for constructing emotional speaker embeddings. Our framework utilizes pretrained state-of-the-art feature extractors for speaker and emotion recognition, including both speaker and emotional information in the final embeddings.
