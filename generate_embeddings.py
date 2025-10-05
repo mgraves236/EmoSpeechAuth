@@ -13,25 +13,26 @@ from modelscope.pipelines import pipeline
 from modelscope.utils.constant import Tasks
 import sys
 
+# Define model
+model_arr = ["ecapa2", "ecapa-tdnn", "resnet", "wav2vec", "emotion2vec"]
+model = model_arr[0]
+
 
 target_sample_rate = 16000
 
 root_dir = ''
 classes = sorted(os.listdir(root_dir))
 
-output_dir = ''
+output_dir = '' + "-" + model
 os.makedirs(output_dir, exist_ok=True)
 
 
-# Define model
-model_arr = ["ecapa2", "ecapa", "resnet", "wav2vec", "emotion2vec"]
-model = model[0]
 
 if model == "ecapa2":
 	model_file = hf_hub_download(repo_id='Jenthe/ECAPA2', filename='ecapa2.pt', cache_dir=None)
 	encoder =  torch.jit.load(model_file, map_location='cuda')
 
-if model == "ecapa":
+if model == "ecapa-tdnn":
 	encoder = EncoderClassifier.from_hparams(source="speechbrain/spkrec-ecapa-voxceleb", run_opts={"device":"cuda"})
 
 if model == "resnet":
@@ -87,7 +88,7 @@ for class_name in classes:
 			with torch.jit.optimized_execution(False):
 				embd = encoder(x = waveform,  labels = "embedding").squeeze(dim=0)
 				
-		if model == "ecapa" or model == "resnet":
+		if model == "ecapa-tdnn" or model == "resnet":
 			embd = encoder.encode_batch(waveform).squeeze(dim=1).squeeze(dim=0)
 			
 			

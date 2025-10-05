@@ -34,6 +34,36 @@ Below is a description of file contents.
 | train.py| Script to train, validate and test the model. |
 | utils.py | Auxiliary functions. |
 
+## 📖 Example Usage
+
+Minimal working example to verify one raw audio sample against another one.
+
+First you need to extract embeddings using [generate_embeddings.py](https://github.com/mgraves236/EmoSpeechAuth/blob/main/generate_embeddings.py) for both speaker and emotional encoder. 
+
+The script expects the directory with structure defined as:
+```
+    root_dataset
+    |__ speaker_1
+    |__ speaker_2
+    |__ speaker_3
+    ...
+```
+To define what model to use to extract embeddings, use this line:
+```Python
+# Define model
+model_arr = ["ecapa2", "ecapa", "resnet", "wav2vec", "emotion2vec"]
+model = model[0]
+```
+Running the script will create a directory as specified by ```output_dir = ''``` with ```.npy``` files.
+
+Then you need to run [extract_embeddings.py](https://github.com/mgraves236/EmoSpeechAuth/blob/main/extract_embeddings.py) which will generate EmoSpeechAuth embeddings. 
+Loading the model from the provided checkpoint is included in the script.
+Make sure to provide your dataset path with ```.npy``` files in the extract_embeddings.py file:
+```Python
+root_dir = '' + sv_model_name
+classes = sorted(os.listdir(root_dir))
+```
+
 ## 📝 Citing
 
 If you use our work in your research, please cite:
