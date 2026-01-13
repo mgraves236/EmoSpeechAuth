@@ -52,7 +52,7 @@ To define what model to use to extract embeddings, use this line:
 ```Python
 # Define model
 model_arr = ["ecapa2", "ecapa", "resnet", "wav2vec", "emotion2vec"]
-model = model[0]
+model = model_arr[0]
 ```
 Running the script will create a directory as specified by ```output_dir = ''``` with ```.npy``` files.
 
